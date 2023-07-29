@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .thumbnail {
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .thumbnail img {
+      max-width: 200px; /* Adjust the width to your desired size */
+      max-height: 200px; /* Adjust the height to your desired size */
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+      display: flex;
+      flex-direction: column; /* Align items vertically */
+      align-items: center; /* Center items horizontally */
+      justify-content: center; /* Center items vertically */
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal-content img {
+      max-width: 90%;
+      max-height: 70%; /* Reduce image height to allow space for the download button */
+      object-fit: contain;
+      cursor: pointer; /* Add cursor pointer to indicate image can be clicked */
+    }
+
+    .download-button {
+      display: inline-block;
+      margin-top: 10px; /* Add some space between the image and the button */
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .download-button:hover {
+      background-color: #45a049;
+    }
+
+    /* Close button styles */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <div class="thumbnail" onclick="showModal('image1.jpg')">
+      <img src="image1-thumbnail.jpg" alt="Thumbnail 1">
+    </div>
+    <div class="thumbnail" onclick="showModal('image2.jpg')">
+      <img src="image2-thumbnail.jpg" alt="Thumbnail 2">
+    </div>
+    <!-- Add more thumbnails here -->
+  </div>
+
+  <div class="modal" onclick="hideModal()">
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Full-size Image" onclick="toggleZoom()">
+      <button id="downloadButton" class="download-button" onclick="downloadImage()">Download Image</button>
+      <div class="close-button" onclick="hideModal()">Close</div>
+    </div>
+  </div>
+
+  <script>
+    let isZoomed = false;
+
+    function showModal(imageSrc) {
+      const modal = document.querySelector(".modal");
+      const modalImage = document.getElementById("modalImage");
+      const downloadButton = document.getElementById("downloadButton");
+
+      modalImage.src = imageSrc;
+      downloadButton.setAttribute("download", imageSrc); // Set the download link to the full-size image
+
+      modal.style.display = "flex";
+      isZoomed = false; // Reset zoom state when opening the modal
+    }
+
+    function hideModal() {
+      const modal = document.querySelector(".modal");
+      modal.style.display = "none";
+    }
+
+    function toggleZoom() {
+      const modalImage = document.getElementById("modalImage");
+      const closeButton = document.querySelector(".close-button");
+
+      if (!isZoomed) {
+        closeButton.style.display = "none"; // Hide the close button when zoomed in
+        modalImage.style.cursor = "zoom-out"; // Change cursor to indicate zoom-out
+
+        const scaleValue = 1.5;
+        modalImage.style.transform = `scale(${scaleValue})`;
+      } else {
+        closeButton.style.display = "block"; // Show the close button when zoomed out
+        modalImage.style.cursor = "zoom-in"; // Change cursor to indicate zoom-in
+
+        modalImage.style.transform = "scale(1)";
+      }
+
+      isZoomed = !isZoomed;
+    }
+
+    function downloadImage() {
+      const modalImage = document.getElementById("modalImage");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = modalImage.src;
+      downloadLink.download = "full-size-image.jpg";
+      downloadLink.click();
+    }
+  </script>
+</body>
+</html>
