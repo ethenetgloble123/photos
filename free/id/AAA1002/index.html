@@ -9,21 +9,36 @@
       font-family: Arial, sans-serif;
     }
 
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin: 20px;
+      margin: 20px auto;
+      max-width: 800px; /* Adjust the maximum width as needed */
     }
 
     .thumbnail {
       margin: 10px;
       cursor: pointer;
+      flex: 0 0 calc(25% - 20px); /* Distribute 4 thumbnails in each row with some margin between them */
+      display: flex;
+      justify-content: center;
     }
 
     .thumbnail img {
-      max-width: 200px; /* Adjust the width to your desired size */
-      max-height: 200px; /* Adjust the height to your desired size */
+      max-width: 100%; /* Adjust the width to your desired size */
+      max-height: 100%; /* Adjust the height to your desired size */
     }
 
     .modal {
@@ -81,6 +96,12 @@
   </style>
 </head>
 <body>
+  <header>
+    <h1>Image Gallery</h1>
+    <p style="color: white;">Tel: 020 8050 8640 | Email: photos@ethenet.com</p>
+    <p><a href="https://photos.ethenet.com/free" style="color: white;">Go Back</a> | <a href="https://photos.ethenet.com/free" style="color: white;">Go Home</a></p>
+  </header>
+
   <div class="gallery">
     <div class="thumbnail" onclick="showModal('image1.jpg')">
       <img src="image1-thumbnail.jpg" alt="Thumbnail 1">
@@ -88,7 +109,38 @@
     <div class="thumbnail" onclick="showModal('image2.jpg')">
       <img src="image2-thumbnail.jpg" alt="Thumbnail 2">
     </div>
-    <!-- Add more thumbnails here -->
+    <!-- Add 2 more thumbnails here -->
+    <div class="thumbnail" onclick="showModal('image3.jpg')">
+      <img src="image3-thumbnail.jpg" alt="Thumbnail 3">
+    </div>
+    <div class="thumbnail" onclick="showModal('image4.jpg')">
+      <img src="image4-thumbnail.jpg" alt="Thumbnail 4">
+    </div>
+    <div class="thumbnail" onclick="showModal('image5.jpg')">
+      <img src="image5-thumbnail.jpg" alt="Thumbnail 5">
+    </div>
+    <div class="thumbnail" onclick="showModal('image6.jpg')">
+      <img src="image6-thumbnail.jpg" alt="Thumbnail 6">
+    </div>
+    <div class="thumbnail" onclick="showModal('image7.jpg')">
+      <img src="image7-thumbnail.jpg" alt="Thumbnail 7">
+    </div>
+    <div class="thumbnail" onclick="showModal('image8.jpg')">
+      <img src="image8-thumbnail.jpg" alt="Thumbnail 8">
+    </div>
+    <div class="thumbnail" onclick="showModal('image9.jpg')">
+      <img src="image9-thumbnail.jpg" alt="Thumbnail 9">
+    </div>
+    <div class="thumbnail" onclick="showModal('image10.jpg')">
+      <img src="image10-thumbnail.jpg" alt="Thumbnail 10">
+    </div>
+    <!-- Add 2 more thumbnails here -->
+    <div class="thumbnail" onclick="showModal('image11.jpg')">
+      <img src="image11-thumbnail.jpg" alt="Thumbnail 11">
+    </div>
+    <div class="thumbnail" onclick="showModal('image12.jpg')">
+      <img src="image12-thumbnail.jpg" alt="Thumbnail 12">
+    </div>
   </div>
 
   <div class="modal" onclick="hideModal()">
