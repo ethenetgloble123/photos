@@ -100,7 +100,13 @@
     <h1>Image Gallery</h1>
     <p style="color: white;">Tel: 020 8050 8640 | Email: photos@ethenet.com</p>
     <p><a href="https://photos.ethenet.com/free" style="color: white;">Go Back</a> | <a href="https://photos.ethenet.com/free" style="color: white;">Go Home</a></p>
-  </header>
+  <form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="hosted_button_id" value="GKL3TFPPTATZG" />
+<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
+</header>
 
   <div class="gallery">
     <div class="thumbnail" onclick="showModal('image1.jpg')">
@@ -143,10 +149,19 @@
     </div>
   </div>
 
+
   <div class="modal" onclick="hideModal()">
     <div class="modal-content">
       <img id="modalImage" src="" alt="Full-size Image" onclick="toggleZoom()">
       <button id="downloadButton" class="download-button" onclick="downloadImage()">Download Image</button>
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<br>
+<input type="hidden" name="hosted_button_id" value="GKL3TFPPTATZG" />
+<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
+
       <div class="close-button" onclick="hideModal()">Close</div>
     </div>
   </div>
